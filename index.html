@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/contacts.js"></script>
+		<script src="js/knockout-2.3.0.js"></script>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<link type="text/css" href="css/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+		<link rel="stylesheet" href="css/style.css" rel="stylesheet" media="all"/>
+	</head>
+	<body>
+		<div class="black-overlay">
+			<div id="add-fly-out">
+				<h3>Name</h3>
+				<input id="fullName" type="text">
+				<h3>Phone</h3>
+				<input id="addPhone" type="text">
+				<h3>Mail</h3>
+				<input id="addMail" type="text">
+				<h3>Group</h3>
+				<input id="addGroup" type="text">
+				<div class="buttons-wrapper">
+					<div class="ok button" data-bind="click:okClicked">Ok</div>
+					<div class="cancel button" data-bind="click:cancelClicked">Cancel</div>
+				</div>
+			</div>
+			<div id="change-fly-out">
+				<h3>Name</h3>
+				<input id="fullNameNew" type="text">
+				<h3>Phone</h3>
+				<input id="PhoneNew" type="text">
+				<h3>Mail</h3>
+				<input id="MailNew" type="text">
+				<h3>Group</h3>
+				<input id="GroupNew" type="text">
+				<div class="buttons-wrapper">
+					<div class="save button" data-bind="click:saveClicked">Ok</div>
+					<div class="cancel button" data-bind="click:cancelClicked">Cancel</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrapper">
+			<div class="left-column">
+				<div class="column-header">
+					<div class="search-field">
+						<input id="searchInput" type="text" value="search"><div class="search-button" data-bind="click:searchContact">Search</div>
+					</div>
+					<div class="groups-dropdown">
+						<select data-bind="options: availableGroups, value: selectedGroup"></select>
+					</div>
+				</div>
+				<div class="contacts-list" >
+					<div class="list-header">Name</div>
+					<ul class="list" data-bind="foreach: contacts" >
+						<li class='contact' data-bind="text: name, click:showDetails, css: { 'selected': selected }"></li>
+					</ul>
+				</div>
+				<div class="column-footer">
+					<div class="add button" data-bind="click:addContact">Add</div>
+					<div class="remove button" data-bind="click:removeContact">Remove</div>
+					<div class="edit button" data-bind="click:editContact">Edit</div>
+				</div>
+			</div>
+			
+			<div class="right-column">
+				<div class="main-info">
+					<div class="photo"></div>
+					<div class="contact-name" data-bind="text: contactName"></div>
+				</div>
+				<div class="details">
+					<p>phone : <span data-bind="text: phone"></span></p>
+					<p>mail : <span data-bind="text: mail"></span></p>
+					<p>group : <span data-bind="text: group"></span></p>
+				</div>
+			</div>
+		</div>
+		<script src="js/script.js"></script>
+	</body>
+</html>
